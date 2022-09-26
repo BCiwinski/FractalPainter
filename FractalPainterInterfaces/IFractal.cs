@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Drawing;
+
+namespace FractalPainterInterfaces
+{
+    public interface IFractal
+    {
+        int IterationsNum { get; set; }
+
+        int GetPointValue(double x, double y);
+    }
+}
