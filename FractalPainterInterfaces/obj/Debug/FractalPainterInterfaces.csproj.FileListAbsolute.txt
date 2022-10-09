@@ -3,3 +3,9 @@ C:\Users\barte\source\PKiR\FractalPainterInterfaces\bin\Debug\FractalPainterInte
 C:\Users\barte\source\PKiR\FractalPainterInterfaces\bin\Debug\FractalPainterInterfaces.pdb
 C:\Users\barte\source\PKiR\FractalPainterInterfaces\obj\Debug\FractalPainterInterfaces.dll
 C:\Users\barte\source\PKiR\FractalPainterInterfaces\obj\Debug\FractalPainterInterfaces.pdb
+C:\Users\barte\Documents\GitHub\FractalPainter\FractalPainterInterfaces\bin\Debug\FractalPainterInterfaces.dll
+C:\Users\barte\Documents\GitHub\FractalPainter\FractalPainterInterfaces\bin\Debug\FractalPainterInterfaces.pdb
+C:\Users\barte\Documents\GitHub\FractalPainter\FractalPainterInterfaces\obj\Debug\FractalPainterInterfaces.csproj.AssemblyReference.cache
+C:\Users\barte\Documents\GitHub\FractalPainter\FractalPainterInterfaces\obj\Debug\FractalPainterInterfaces.csproj.CoreCompileInputs.cache
+C:\Users\barte\Documents\GitHub\FractalPainter\FractalPainterInterfaces\obj\Debug\FractalPainterInterfaces.dll
+C:\Users\barte\Documents\GitHub\FractalPainter\FractalPainterInterfaces\obj\Debug\FractalPainterInterfaces.pdb
