@@ -67,7 +67,7 @@ namespace FractalDrawer
                 for(int y = 0; y < drawSize.Height; y++)
                     for(int x = 0; x < drawSize.Width; x++)
                     {
-                        PtrFirstPixel[y * widthInBytes + x * bytesPerPixel] = (byte)(colorScale * (double)(fractal.GetPointValue(
+                        PtrFirstPixel[y * widthInBytes + x * bytesPerPixel] = (byte)(colorScale * (double)(fractal.GetPointIterations(
                             (((double)x - offsetX) / zoom),
                             (((double)y - offsetY) / zoom)
                             )

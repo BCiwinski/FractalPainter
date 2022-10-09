@@ -11,6 +11,6 @@ namespace FractalPainterInterfaces
     {
         int IterationsNum { get; set; }
 
-        int GetPointValue(double x, double y);
+        int GetPointIterations(double x, double y);
     }
 }
