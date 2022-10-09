@@ -1,6 +1,8 @@
 # Ignore debug files
 
+FractalDrawer/obj
 FractalPainter/obj
+FractalPainterInterfaces/obj
 FractalDrawer/bin/Debug
 FractalPainter/bin/Debug
 FractalPainterInterfaces/bin/Debug
