@@ -8,7 +8,7 @@ using FractalPainterInterfaces;
 
 namespace FractalDrawer
 {
-    class BlackBluePalette : IFractalColorPalette
+    public class BlackBluePalette : IFractalColorPalette
     {
         List<ColorItr> colorItr = new List<ColorItr>() {
         new ColorItr {color = Color.White, itr = 0},

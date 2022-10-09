@@ -14,6 +14,8 @@ namespace FractalDrawer
         protected IFractal fractal;
         public IFractal Fractal { get { return fractal; } set { fractal = value; } }
 
+        protected IFractalColorPalette palette;
+        public IFractalColorPalette Palette { get { return palette; } set { palette = value; } }
 
         protected Size drawSize = new Size(512, 512);
         public Size DrawSize { get { return drawSize; } set { drawSize = value; } }
@@ -33,9 +35,10 @@ namespace FractalDrawer
         protected double offsetY = 256.0;
         public double OffsetY { get { return offsetY; } set { offsetY = value; } }
 
-        public FractalDrawer(IFractal fractal)
+        public FractalDrawer(IFractal fractal, IFractalColorPalette palette)
         {
             this.fractal = fractal;
+            this.palette = palette;
         }
 
         public Image DrawFractal()
