@@ -22,6 +22,7 @@ namespace FractalPainter
             Autofac.ContainerBuilder builder = new Autofac.ContainerBuilder();
             builder.RegisterType<FractalDrawer.FractalDrawer>().As<FractalPainterInterfaces.IFractalDrawer>();
             builder.RegisterType<FractalDrawer.MandelbrotSet>().As<FractalPainterInterfaces.IFractal>();
+            builder.RegisterType<FractalDrawer.BlackBluePalette>().As<FractalPainterInterfaces.IFractalColorPalette>();
 
             Autofac.IContainer container = builder.Build();
             Application.Run(new FractalPainterApp(container));

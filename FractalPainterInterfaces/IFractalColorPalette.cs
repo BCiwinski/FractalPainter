@@ -7,10 +7,8 @@ using System.Drawing;
 
 namespace FractalPainterInterfaces
 {
-    public interface IFractal
+    public interface IFractalColorPalette
     {
-        int IterationsNum { get; set; }
-
-        int GetPointIterations(double x, double y);
+        Color GetIterationColor(int iteration);
     }
 }

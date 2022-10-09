@@ -14,6 +14,8 @@ namespace FractalDrawer
         protected IFractal fractal;
         public IFractal Fractal { get { return fractal; } set { fractal = value; } }
 
+        protected IFractalColorPalette palette;
+        public IFractalColorPalette Palette { get { return palette; } set { palette = value; } }
 
         protected Size drawSize = new Size(512, 512);
         public Size DrawSize { get { return drawSize; } set { drawSize = value; } }
@@ -33,9 +35,10 @@ namespace FractalDrawer
         protected double offsetY = 256.0;
         public double OffsetY { get { return offsetY; } set { offsetY = value; } }
 
-        public FractalDrawer(IFractal fractal)
+        public FractalDrawer(IFractal fractal, IFractalColorPalette palette)
         {
             this.fractal = fractal;
+            this.palette = palette;
         }
 
         public Image DrawFractal()
@@ -58,8 +61,6 @@ namespace FractalDrawer
             byte[] rgbValues = new byte[bytes];
 
 
-            double colorScale = 255.0 / (double)IterationsNum;
-
             unsafe
             {
                 byte* PtrFirstPixel = (byte*)bmpData.Scan0;
@@ -67,11 +68,14 @@ namespace FractalDrawer
                 for(int y = 0; y < drawSize.Height; y++)
                     for(int x = 0; x < drawSize.Width; x++)
                     {
-                        PtrFirstPixel[y * widthInBytes + x * bytesPerPixel] = (byte)(colorScale * (double)(fractal.GetPointValue(
+                        Color color = palette.GetIterationColor(fractal.GetPointIterations(
                             (((double)x - offsetX) / zoom),
                             (((double)y - offsetY) / zoom)
-                            )
                             ));
+
+                        PtrFirstPixel[y * widthInBytes + x * bytesPerPixel] = (byte)(color.B);
+                        PtrFirstPixel[y * widthInBytes + x * bytesPerPixel + 1] = (byte)(color.G);
+                        PtrFirstPixel[y * widthInBytes + x * bytesPerPixel + 2] = (byte)(color.R);
                     }
             }
 

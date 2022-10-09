@@ -29,5 +29,10 @@ namespace FractalPainter
             pictureBox.Image = drawer.DrawFractal();
 
         }
+
+        private void numericUpDownIterations_ValueChanged(object sender, EventArgs e)
+        {
+            drawer.IterationsNum = (int)numericUpDownIterations.Value;
+        }
     }
 }

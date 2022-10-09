@@ -12,7 +12,7 @@ namespace FractalDrawer
         int iterationsNum = 100;
         public int IterationsNum { get { return iterationsNum; } set { iterationsNum = value; } }
 
-        public int GetPointValue(double x0, double y0)
+        public int GetPointIterations(double x0, double y0)
         {
             // algorithm from wikipedia
             // https://en.wikipedia.org/wiki/Mandelbrot_set#Computer_drawings
