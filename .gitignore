@@ -1,3 +1,9 @@
+# Ignore debug files
+
 FractalPainter/obj
+FractalDrawer/bin/Debug
 FractalPainter/bin/Debug
-.vs/
+FractalPainterInterfaces/bin/Debug
+
+# Ignore .vs floders
+FractalPainter/.vs/
