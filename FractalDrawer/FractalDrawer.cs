@@ -61,8 +61,6 @@ namespace FractalDrawer
             byte[] rgbValues = new byte[bytes];
 
 
-            double colorScale = 255.0 / (double)IterationsNum;
-
             unsafe
             {
                 byte* PtrFirstPixel = (byte*)bmpData.Scan0;
@@ -70,11 +68,14 @@ namespace FractalDrawer
                 for(int y = 0; y < drawSize.Height; y++)
                     for(int x = 0; x < drawSize.Width; x++)
                     {
-                        PtrFirstPixel[y * widthInBytes + x * bytesPerPixel] = (byte)(colorScale * (double)(fractal.GetPointIterations(
+                        Color color = palette.GetIterationColor(fractal.GetPointIterations(
                             (((double)x - offsetX) / zoom),
                             (((double)y - offsetY) / zoom)
-                            )
                             ));
+
+                        PtrFirstPixel[y * widthInBytes + x * bytesPerPixel] = (byte)(color.B);
+                        PtrFirstPixel[y * widthInBytes + x * bytesPerPixel + 1] = (byte)(color.G);
+                        PtrFirstPixel[y * widthInBytes + x * bytesPerPixel + 2] = (byte)(color.R);
                     }
             }
 

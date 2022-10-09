@@ -11,8 +11,9 @@ namespace FractalDrawer
     public class BlackBluePalette : IFractalColorPalette
     {
         List<ColorItr> colorItr = new List<ColorItr>() {
-        new ColorItr {color = Color.White, itr = 0},
-        new ColorItr {color = Color.Blue, itr = 20},
+        new ColorItr {color = Color.Black, itr = 0},
+        new ColorItr {color = Color.DarkBlue, itr = 20},
+        new ColorItr {color = Color.Blue, itr = 50},
         new ColorItr {color = Color.Black, itr = 100}
         };
 
@@ -24,7 +25,7 @@ namespace FractalDrawer
         public Color GetIterationColor(int iteration)
         {
             ColorItr colorBefore = colorItr[0];
-            ColorItr colorAfter = colorItr[0];
+            ColorItr colorAfter = colorItr.Last();
 
 
             foreach (ColorItr ci in colorItr)
@@ -36,8 +37,8 @@ namespace FractalDrawer
                     colorAfter = ci;
             }
 
-            if (colorAfter.color == colorBefore.color)
-                return colorAfter.color;
+            if (colorAfter.itr == colorBefore.itr)
+                return colorBefore.color;
 
 
             int range = colorAfter.itr - colorBefore.itr;
