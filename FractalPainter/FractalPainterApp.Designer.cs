@@ -32,12 +32,15 @@ namespace FractalPainter
             this.panel = new System.Windows.Forms.Panel();
             this.buttonDraw = new System.Windows.Forms.Button();
             this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.numericUpDownIterations = new System.Windows.Forms.NumericUpDown();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownIterations)).BeginInit();
             this.SuspendLayout();
             // 
             // panel
             // 
+            this.panel.Controls.Add(this.numericUpDownIterations);
             this.panel.Controls.Add(this.buttonDraw);
             this.panel.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel.Location = new System.Drawing.Point(0, 0);
@@ -67,6 +70,13 @@ namespace FractalPainter
             this.pictureBox.TabIndex = 2;
             this.pictureBox.TabStop = false;
             // 
+            // numericUpDownIterations
+            // 
+            this.numericUpDownIterations.Location = new System.Drawing.Point(3, 469);
+            this.numericUpDownIterations.Name = "numericUpDownIterations";
+            this.numericUpDownIterations.Size = new System.Drawing.Size(148, 22);
+            this.numericUpDownIterations.TabIndex = 1;
+            // 
             // FractalPainterApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -78,6 +88,7 @@ namespace FractalPainter
             this.Text = "FractalPainter";
             this.panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownIterations)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -87,6 +98,7 @@ namespace FractalPainter
         private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Button buttonDraw;
+        private System.Windows.Forms.NumericUpDown numericUpDownIterations;
     }
 }
 
