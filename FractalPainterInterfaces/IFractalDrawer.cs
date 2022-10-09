@@ -10,7 +10,7 @@ namespace FractalPainterInterfaces
     public interface IFractalDrawer
     {
         IFractal Fractal { get; set; }
-
+        IFractalColorPalette Palette { get; set; }
         int IterationsNum { get; set; }
         double Zoom { get; set; }
         double OffsetX { get; set; }
