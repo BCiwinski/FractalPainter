@@ -73,9 +73,25 @@ namespace FractalPainter
             // numericUpDownIterations
             // 
             this.numericUpDownIterations.Location = new System.Drawing.Point(3, 469);
+            this.numericUpDownIterations.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numericUpDownIterations.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDownIterations.Name = "numericUpDownIterations";
             this.numericUpDownIterations.Size = new System.Drawing.Size(148, 22);
             this.numericUpDownIterations.TabIndex = 1;
+            this.numericUpDownIterations.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.numericUpDownIterations.ValueChanged += new System.EventHandler(this.numericUpDownIterations_ValueChanged);
             // 
             // FractalPainterApp
             // 
