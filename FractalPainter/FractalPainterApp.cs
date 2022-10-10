@@ -49,7 +49,22 @@ namespace FractalPainter
 
         private async void updateFractalAsync(CancellationToken cancellationToken)
         {
+            buttonDrawChangeState(false);
             pictureBox.Image = await Task.Run(() => drawer.DrawFractal(), cancellationToken);
+            buttonDrawChangeState(true);
+        }
+
+        private void buttonDrawChangeState(bool showDraw)
+        {
+            if (showDraw)
+            {
+                buttonDraw.Text = "Draw";
+            }
+            else
+            {
+                buttonDraw.Text = "Drawing...";
+            }
+
         }
 
         private void onParamsChanged()
