@@ -35,6 +35,7 @@ namespace FractalPainter
             this.numericUpDownIterations = new System.Windows.Forms.NumericUpDown();
             this.buttonDraw = new System.Windows.Forms.Button();
             this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.labelInfo = new System.Windows.Forms.Label();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownZoom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownIterations)).BeginInit();
@@ -43,6 +44,7 @@ namespace FractalPainter
             // 
             // panel
             // 
+            this.panel.Controls.Add(this.labelInfo);
             this.panel.Controls.Add(this.checkBoxAutoRedraw);
             this.panel.Controls.Add(this.numericUpDownZoom);
             this.panel.Controls.Add(this.numericUpDownIterations);
@@ -139,6 +141,14 @@ namespace FractalPainter
             this.pictureBox.TabStop = false;
             this.pictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
             // 
+            // labelInfo
+            // 
+            this.labelInfo.Location = new System.Drawing.Point(13, 13);
+            this.labelInfo.Name = "labelInfo";
+            this.labelInfo.Size = new System.Drawing.Size(128, 62);
+            this.labelInfo.TabIndex = 4;
+            this.labelInfo.Text = "Click on the image to center on a point";
+            // 
             // FractalPainterApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -166,6 +176,7 @@ namespace FractalPainter
         private System.Windows.Forms.NumericUpDown numericUpDownIterations;
         private System.Windows.Forms.NumericUpDown numericUpDownZoom;
         private System.Windows.Forms.CheckBox checkBoxAutoRedraw;
+        private System.Windows.Forms.Label labelInfo;
     }
 }
 
