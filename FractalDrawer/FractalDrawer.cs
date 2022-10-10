@@ -88,5 +88,15 @@ namespace FractalDrawer
             result.UnlockBits(bmpData);
             return result;
         }
+
+        public double GetPointX(int x)
+        {
+            return (((double)x - drawSize.Width / 2) / zoom) - offsetX;
+        }
+
+        public double GetPointY(int y)
+        {
+            return (((double)y - drawSize.Height / 2) / zoom) - offsetY;
+        }
     }
 }

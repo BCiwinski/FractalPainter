@@ -18,5 +18,8 @@ namespace FractalPainterInterfaces
 
         Size DrawSize { get; set; }
         Image DrawFractal();
+
+        double GetPointX(int pixelX);
+        double GetPointY(int pixelY);
     }
 }
