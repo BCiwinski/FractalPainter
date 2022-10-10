@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FractalPainterInterfaces;
 using Autofac;
+using System.Threading;
 
 namespace FractalPainter
 {
@@ -43,7 +44,27 @@ namespace FractalPainter
             drawer.DrawSize = pictureBox.Size;
             drawer.Zoom = (double)numericUpDownZoom.Value;
 
-            pictureBox.Image = drawer.DrawFractal();
+            updateFractalAsync(CancellationToken.None);
+        }
+
+        private async void updateFractalAsync(CancellationToken cancellationToken)
+        {
+            buttonDrawChangeState(false);
+            pictureBox.Image = await Task.Run(() => drawer.DrawFractal(), cancellationToken);
+            buttonDrawChangeState(true);
+        }
+
+        private void buttonDrawChangeState(bool showDraw)
+        {
+            if (showDraw)
+            {
+                buttonDraw.Text = "Draw";
+            }
+            else
+            {
+                buttonDraw.Text = "Drawing...";
+            }
+
         }
 
         private void onParamsChanged()
