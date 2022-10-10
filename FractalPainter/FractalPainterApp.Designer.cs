@@ -30,12 +30,12 @@ namespace FractalPainter
         private void InitializeComponent()
         {
             this.panel = new System.Windows.Forms.Panel();
+            this.labelInfo = new System.Windows.Forms.Label();
             this.checkBoxAutoRedraw = new System.Windows.Forms.CheckBox();
             this.numericUpDownZoom = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownIterations = new System.Windows.Forms.NumericUpDown();
             this.buttonDraw = new System.Windows.Forms.Button();
             this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.labelInfo = new System.Windows.Forms.Label();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownZoom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownIterations)).BeginInit();
@@ -54,6 +54,14 @@ namespace FractalPainter
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(157, 553);
             this.panel.TabIndex = 1;
+            // 
+            // labelInfo
+            // 
+            this.labelInfo.Location = new System.Drawing.Point(13, 13);
+            this.labelInfo.Name = "labelInfo";
+            this.labelInfo.Size = new System.Drawing.Size(128, 62);
+            this.labelInfo.TabIndex = 4;
+            this.labelInfo.Text = "Click on the image to center on a point";
             // 
             // checkBoxAutoRedraw
             // 
@@ -132,30 +140,23 @@ namespace FractalPainter
             // pictureBox
             // 
             this.pictureBox.BackColor = System.Drawing.Color.White;
+            this.pictureBox.Cursor = System.Windows.Forms.Cursors.Default;
             this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox.Location = new System.Drawing.Point(157, 0);
+            this.pictureBox.Location = new System.Drawing.Point(0, 0);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(1025, 553);
+            this.pictureBox.Size = new System.Drawing.Size(1182, 553);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox.TabIndex = 2;
             this.pictureBox.TabStop = false;
             this.pictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
-            // 
-            // labelInfo
-            // 
-            this.labelInfo.Location = new System.Drawing.Point(13, 13);
-            this.labelInfo.Name = "labelInfo";
-            this.labelInfo.Size = new System.Drawing.Size(128, 62);
-            this.labelInfo.TabIndex = 4;
-            this.labelInfo.Text = "Click on the image to center on a point";
             // 
             // FractalPainterApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1182, 553);
-            this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.panel);
+            this.Controls.Add(this.pictureBox);
             this.Name = "FractalPainterApp";
             this.Text = "FractalPainter";
             this.ResizeEnd += new System.EventHandler(this.FractalPainterApp_ResizeEnd);
