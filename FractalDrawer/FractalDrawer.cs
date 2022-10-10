@@ -24,21 +24,25 @@ namespace FractalDrawer
         public int IterationsNum {get { return fractal.IterationsNum; } set { fractal.IterationsNum = value; } }
 
 
-        protected double zoom = 200.0;
+        protected double zoom = 1.0;
         public double Zoom { get { return zoom; } set { zoom = value; } }
 
 
-        protected double offsetX = 2.0;
+        protected double offsetX = 0.0;
         public double OffsetX { get { return offsetX; } set { offsetX = value; } }
 
 
-        protected double offsetY = 1.0;
+        protected double offsetY = 0.0;
         public double OffsetY { get { return offsetY; } set { offsetY = value; } }
 
         public FractalDrawer(IFractal fractal, IFractalColorPalette palette)
         {
             this.fractal = fractal;
             this.palette = palette;
+
+            zoom = fractal.DefaultZoom;
+            offsetX = fractal.DefaultOffsetX;
+            offsetY = fractal.DefaultOffsetY;
         }
 
         public Image DrawFractal()
