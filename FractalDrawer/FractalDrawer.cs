@@ -73,8 +73,8 @@ namespace FractalDrawer
                     for(int x = 0; x < drawSize.Width; x++)
                     {
                         Color color = palette.GetIterationColor(fractal.GetPointIterations(
-                            ((((double)x - drawSize.Width / 2) / zoom) - offsetX),
-                            ((((double)y - drawSize.Height / 2)/ zoom) - offsetY)
+                            GetPointX(x),
+                            GetPointY(y)
                             ));
 
                         PtrFirstPixel[y * widthInBytes + x * bytesPerPixel] = (byte)(color.B);
