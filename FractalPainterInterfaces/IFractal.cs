@@ -12,5 +12,9 @@ namespace FractalPainterInterfaces
         int IterationsNum { get; set; }
 
         int GetPointIterations(double x, double y);
+
+        double DefaultZoom { get; }
+        double DefaultOffsetX { get; }
+        double DefaultOffsetY { get; }
     }
 }

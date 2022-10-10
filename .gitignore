@@ -1,5 +1,4 @@
 # Ignore debug files
-
 FractalDrawer/obj
 FractalPainter/obj
 FractalPainterInterfaces/obj
@@ -9,4 +8,3 @@ FractalPainterInterfaces/bin/Debug
 
 # Ignore .vs floders
 FractalPainter/.vs/
-FractalPainter/.vs/FractalPainter/v16/.suo

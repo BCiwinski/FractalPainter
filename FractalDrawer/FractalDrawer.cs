@@ -24,21 +24,25 @@ namespace FractalDrawer
         public int IterationsNum {get { return fractal.IterationsNum; } set { fractal.IterationsNum = value; } }
 
 
-        protected double zoom = 200.0;
+        protected double zoom = 1.0;
         public double Zoom { get { return zoom; } set { zoom = value; } }
 
 
-        protected double offsetX = 384.0;
+        protected double offsetX = 0.0;
         public double OffsetX { get { return offsetX; } set { offsetX = value; } }
 
 
-        protected double offsetY = 256.0;
+        protected double offsetY = 0.0;
         public double OffsetY { get { return offsetY; } set { offsetY = value; } }
 
         public FractalDrawer(IFractal fractal, IFractalColorPalette palette)
         {
             this.fractal = fractal;
             this.palette = palette;
+
+            zoom = fractal.DefaultZoom;
+            offsetX = fractal.DefaultOffsetX;
+            offsetY = fractal.DefaultOffsetY;
         }
 
         public Image DrawFractal()
@@ -69,8 +73,8 @@ namespace FractalDrawer
                     for(int x = 0; x < drawSize.Width; x++)
                     {
                         Color color = palette.GetIterationColor(fractal.GetPointIterations(
-                            (((double)x - offsetX) / zoom),
-                            (((double)y - offsetY) / zoom)
+                            GetPointX(x),
+                            GetPointY(y)
                             ));
 
                         PtrFirstPixel[y * widthInBytes + x * bytesPerPixel] = (byte)(color.B);
@@ -83,6 +87,16 @@ namespace FractalDrawer
 
             result.UnlockBits(bmpData);
             return result;
+        }
+
+        public double GetPointX(int x)
+        {
+            return (((double)x - drawSize.Width / 2) / zoom) - offsetX;
+        }
+
+        public double GetPointY(int y)
+        {
+            return (((double)y - drawSize.Height / 2) / zoom) - offsetY;
         }
     }
 }
