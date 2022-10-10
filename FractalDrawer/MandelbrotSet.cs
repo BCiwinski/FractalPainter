@@ -14,9 +14,9 @@ namespace FractalDrawer
 
         public double DefaultZoom { get { return 200.0; } }
 
-        public double DefaultOffsetX { get { return 2.0; } }
+        public double DefaultOffsetX { get { return 0.5; } }
 
-        public double DefaultOffsetY { get { return 1.0; } }
+        public double DefaultOffsetY { get { return 0.0; } }
 
         public int GetPointIterations(double x0, double y0)
         {

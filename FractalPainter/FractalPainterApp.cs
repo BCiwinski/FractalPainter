@@ -16,6 +16,7 @@ namespace FractalPainter
     {
         IFractalDrawer drawer;
 
+        decimal zoomIncrementMult = 0.1m;
 
         public FractalPainterApp(Autofac.IContainer container)
         {
@@ -39,6 +40,13 @@ namespace FractalPainter
         private void numericUpDownIterations_ValueChanged(object sender, EventArgs e)
         {
             drawer.IterationsNum = (int)numericUpDownIterations.Value;
+        }
+
+        private void numericUpDownZoom_ValueChanged(object sender, EventArgs e)
+        {
+            drawer.Zoom = (double)numericUpDownZoom.Value;
+
+            numericUpDownZoom.Increment = numericUpDownZoom.Value * zoomIncrementMult;
         }
     }
 }

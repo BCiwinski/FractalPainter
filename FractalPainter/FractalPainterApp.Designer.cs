@@ -118,6 +118,7 @@ namespace FractalPainter
             0,
             0,
             0});
+            this.numericUpDownZoom.ValueChanged += new System.EventHandler(this.numericUpDownZoom_ValueChanged);
             // 
             // FractalPainterApp
             // 
