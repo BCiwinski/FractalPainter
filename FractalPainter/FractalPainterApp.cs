@@ -82,5 +82,10 @@ namespace FractalPainter
 
             onParamsChanged();
         }
+
+        private void FractalPainterApp_ResizeEnd(object sender, EventArgs e)
+        {
+            onParamsChanged();
+        }
     }
 }

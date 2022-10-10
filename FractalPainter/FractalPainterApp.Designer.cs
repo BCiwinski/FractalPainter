@@ -148,6 +148,7 @@ namespace FractalPainter
             this.Controls.Add(this.panel);
             this.Name = "FractalPainterApp";
             this.Text = "FractalPainter";
+            this.ResizeEnd += new System.EventHandler(this.FractalPainterApp_ResizeEnd);
             this.panel.ResumeLayout(false);
             this.panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownZoom)).EndInit();
