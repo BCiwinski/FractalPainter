@@ -30,11 +30,16 @@ namespace FractalPainter
 
         private void buttonDraw_Click(object sender, EventArgs e)
         {
+
+            drawFractal();
+        }
+
+        private void drawFractal()
+        {
             drawer.DrawSize = pictureBox.Size;
             drawer.Zoom = (double)numericUpDownZoom.Value;
 
             pictureBox.Image = drawer.DrawFractal();
-
         }
 
         private void numericUpDownIterations_ValueChanged(object sender, EventArgs e)
@@ -44,8 +49,6 @@ namespace FractalPainter
 
         private void numericUpDownZoom_ValueChanged(object sender, EventArgs e)
         {
-            drawer.Zoom = (double)numericUpDownZoom.Value;
-
             numericUpDownZoom.Increment = numericUpDownZoom.Value * zoomIncrementMult;
         }
     }
