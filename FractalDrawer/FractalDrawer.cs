@@ -28,11 +28,11 @@ namespace FractalDrawer
         public double Zoom { get { return zoom; } set { zoom = value; } }
 
 
-        protected double offsetX = 384.0;
+        protected double offsetX = 2.0;
         public double OffsetX { get { return offsetX; } set { offsetX = value; } }
 
 
-        protected double offsetY = 256.0;
+        protected double offsetY = 1.0;
         public double OffsetY { get { return offsetY; } set { offsetY = value; } }
 
         public FractalDrawer(IFractal fractal, IFractalColorPalette palette)
@@ -69,8 +69,8 @@ namespace FractalDrawer
                     for(int x = 0; x < drawSize.Width; x++)
                     {
                         Color color = palette.GetIterationColor(fractal.GetPointIterations(
-                            (((double)x - offsetX) / zoom),
-                            (((double)y - offsetY) / zoom)
+                            (((double)x / zoom) - offsetX),
+                            (((double)y / zoom) - offsetY)
                             ));
 
                         PtrFirstPixel[y * widthInBytes + x * bytesPerPixel] = (byte)(color.B);
