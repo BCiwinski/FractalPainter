@@ -69,5 +69,18 @@ namespace FractalPainter
             autoRedraw = checkBoxAutoRedraw.Checked;
             onParamsChanged();
         }
+
+        private void pictureBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            centerOnPoint(e.X, e.Y);
+        }
+
+        private void centerOnPoint(int x, int y)
+        {
+            drawer.OffsetX = -drawer.GetPointX(x);
+            drawer.OffsetY = -drawer.GetPointY(y);
+
+            onParamsChanged();
+        }
     }
 }
