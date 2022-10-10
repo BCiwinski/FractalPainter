@@ -22,10 +22,16 @@ namespace FractalPainter
             InitializeComponent();
 
             drawer = container.Resolve<IFractalDrawer>();
+            drawer.DrawSize = pictureBox.Size;
+
+            numericUpDownZoom.Value = (decimal)drawer.Fractal.DefaultZoom;
         }
 
         private void buttonDraw_Click(object sender, EventArgs e)
         {
+            drawer.DrawSize = pictureBox.Size;
+            drawer.Zoom = (double)numericUpDownZoom.Value;
+
             pictureBox.Image = drawer.DrawFractal();
 
         }
