@@ -16,6 +16,7 @@ namespace FractalPainter
     {
         IFractalDrawer drawer;
 
+        bool autoRedraw = true;
         decimal zoomIncrementMult = 0.1m;
 
         public FractalPainterApp(Autofac.IContainer container)
@@ -26,6 +27,8 @@ namespace FractalPainter
             drawer.DrawSize = pictureBox.Size;
 
             numericUpDownZoom.Value = (decimal)drawer.Fractal.DefaultZoom;
+
+            drawFractal();
         }
 
         private void buttonDraw_Click(object sender, EventArgs e)
@@ -42,14 +45,29 @@ namespace FractalPainter
             pictureBox.Image = drawer.DrawFractal();
         }
 
+        private void onParamsChanged()
+        {
+            if (autoRedraw)
+                drawFractal();
+
+        }
+
         private void numericUpDownIterations_ValueChanged(object sender, EventArgs e)
         {
             drawer.IterationsNum = (int)numericUpDownIterations.Value;
+            onParamsChanged();
         }
 
         private void numericUpDownZoom_ValueChanged(object sender, EventArgs e)
         {
             numericUpDownZoom.Increment = numericUpDownZoom.Value * zoomIncrementMult;
+            onParamsChanged();
+        }
+
+        private void checkBoxAutoRedraw_CheckedChanged(object sender, EventArgs e)
+        {
+            autoRedraw = checkBoxAutoRedraw.Checked;
+            onParamsChanged();
         }
     }
 }

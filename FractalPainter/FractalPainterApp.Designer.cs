@@ -34,6 +34,7 @@ namespace FractalPainter
             this.buttonDraw = new System.Windows.Forms.Button();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.numericUpDownZoom = new System.Windows.Forms.NumericUpDown();
+            this.checkBoxAutoRedraw = new System.Windows.Forms.CheckBox();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownIterations)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
@@ -42,6 +43,7 @@ namespace FractalPainter
             // 
             // panel
             // 
+            this.panel.Controls.Add(this.checkBoxAutoRedraw);
             this.panel.Controls.Add(this.numericUpDownZoom);
             this.panel.Controls.Add(this.numericUpDownIterations);
             this.panel.Controls.Add(this.buttonDraw);
@@ -53,7 +55,7 @@ namespace FractalPainter
             // 
             // numericUpDownIterations
             // 
-            this.numericUpDownIterations.Location = new System.Drawing.Point(3, 469);
+            this.numericUpDownIterations.Location = new System.Drawing.Point(4, 442);
             this.numericUpDownIterations.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -99,7 +101,7 @@ namespace FractalPainter
             // numericUpDownZoom
             // 
             this.numericUpDownZoom.DecimalPlaces = 3;
-            this.numericUpDownZoom.Location = new System.Drawing.Point(4, 441);
+            this.numericUpDownZoom.Location = new System.Drawing.Point(5, 414);
             this.numericUpDownZoom.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -120,6 +122,19 @@ namespace FractalPainter
             0});
             this.numericUpDownZoom.ValueChanged += new System.EventHandler(this.numericUpDownZoom_ValueChanged);
             // 
+            // checkBoxAutoRedraw
+            // 
+            this.checkBoxAutoRedraw.AutoSize = true;
+            this.checkBoxAutoRedraw.Checked = true;
+            this.checkBoxAutoRedraw.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxAutoRedraw.Location = new System.Drawing.Point(4, 470);
+            this.checkBoxAutoRedraw.Name = "checkBoxAutoRedraw";
+            this.checkBoxAutoRedraw.Size = new System.Drawing.Size(107, 21);
+            this.checkBoxAutoRedraw.TabIndex = 3;
+            this.checkBoxAutoRedraw.Text = "AutoRedraw";
+            this.checkBoxAutoRedraw.UseVisualStyleBackColor = true;
+            this.checkBoxAutoRedraw.CheckedChanged += new System.EventHandler(this.checkBoxAutoRedraw_CheckedChanged);
+            // 
             // FractalPainterApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -130,6 +145,7 @@ namespace FractalPainter
             this.Name = "FractalPainterApp";
             this.Text = "FractalPainter";
             this.panel.ResumeLayout(false);
+            this.panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownIterations)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownZoom)).EndInit();
@@ -144,6 +160,7 @@ namespace FractalPainter
         private System.Windows.Forms.Button buttonDraw;
         private System.Windows.Forms.NumericUpDown numericUpDownIterations;
         private System.Windows.Forms.NumericUpDown numericUpDownZoom;
+        private System.Windows.Forms.CheckBox checkBoxAutoRedraw;
     }
 }
 
