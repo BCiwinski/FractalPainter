@@ -12,11 +12,11 @@ namespace FractalDrawer
         int iterationsNum = 100;
         public int IterationsNum { get { return iterationsNum; } set { iterationsNum = value; } }
 
-        public double DefaultZoom => throw new NotImplementedException();
+        public double DefaultZoom { get { return 200.0; } }
 
-        public double DefaultOffsetX => throw new NotImplementedException();
+        public double DefaultOffsetX { get { return 2.0; } }
 
-        public double DefaultOffsetY => throw new NotImplementedException();
+        public double DefaultOffsetY { get { return 1.0; } }
 
         public int GetPointIterations(double x0, double y0)
         {
