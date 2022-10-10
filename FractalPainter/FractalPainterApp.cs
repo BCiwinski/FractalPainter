@@ -16,7 +16,7 @@ namespace FractalPainter
     {
         IFractalDrawer drawer;
 
-        bool autoRedraw = true;
+        bool autoRedraw = false;
         decimal zoomIncrementMult = 0.1m;
 
         public FractalPainterApp(Autofac.IContainer container)
@@ -27,6 +27,7 @@ namespace FractalPainter
             drawer.DrawSize = pictureBox.Size;
 
             numericUpDownZoom.Value = (decimal)drawer.Fractal.DefaultZoom;
+            autoRedraw = checkBoxAutoRedraw.Checked;
 
             drawFractal();
         }
