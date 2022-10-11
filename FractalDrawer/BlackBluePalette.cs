@@ -19,18 +19,21 @@ namespace FractalDrawer
 
         public int IterationsMax { get{ return 100;} }
 
+        private float stretch = 1.0f;
+        public float Stretch { get { return stretch; } set { stretch = value; } }
+
         public Color GetIterationColor(int iteration)
         {
-            ColorItr colorBefore = colorItr[0];
+            ColorItr colorBefore = colorItr.First();
             ColorItr colorAfter = colorItr.Last();
 
 
             foreach (ColorItr ci in colorItr)
             {
-                if (ci.itr <= iteration && colorBefore.itr < ci.itr)
+                if (ci.itr * stretch <= iteration && colorBefore.itr * stretch < ci.itr * stretch)
                     colorBefore = ci;
 
-                if (ci.itr >= iteration && colorAfter.itr > ci.itr)
+                if (ci.itr * stretch >= iteration && colorAfter.itr * stretch > ci.itr * stretch)
                     colorAfter = ci;
             }
 
