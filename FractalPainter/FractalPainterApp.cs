@@ -168,5 +168,17 @@ namespace FractalPainter
         {
             onUserResolutionChanged();
         }
+
+        private void numericUpDownStretch_ValueChanged(object sender, EventArgs e)
+        {
+            drawer.Palette.Stretch = (float)numericUpDownStretch.Value;
+            onParamsChanged();
+        }
+
+        private void checkBoxLoop_CheckedChanged(object sender, EventArgs e)
+        {
+            drawer.PaletteLoop = checkBoxLoop.Checked;
+            onParamsChanged();
+        }
     }
 }
