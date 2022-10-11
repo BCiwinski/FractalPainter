@@ -17,10 +17,7 @@ namespace FractalDrawer
         new ColorItr {color = Color.Black, itr = 100}
         };
 
-
-
-
-
+        public int IterationsMax { get{ return 100;} }
 
         public Color GetIterationColor(int iteration)
         {
@@ -56,6 +53,8 @@ namespace FractalDrawer
 
             return result;
         }
+
+
     }
 
     struct ColorItr

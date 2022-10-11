@@ -10,5 +10,7 @@ namespace FractalPainterInterfaces
     public interface IFractalColorPalette
     {
         Color GetIterationColor(int iteration);
+
+        int IterationsMax { get; }
     }
 }
