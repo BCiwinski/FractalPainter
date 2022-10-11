@@ -93,8 +93,8 @@ namespace FractalPainter
             this.numericUpDownZoom.DecimalPlaces = 3;
             this.numericUpDownZoom.Location = new System.Drawing.Point(5, 414);
             this.numericUpDownZoom.Maximum = new decimal(new int[] {
-            100000,
-            0,
+            -1530494976,
+            232830,
             0,
             0});
             this.numericUpDownZoom.Minimum = new decimal(new int[] {
