@@ -41,8 +41,8 @@ namespace FractalDrawer
                 return colorBefore.color;
 
 
-            int range = colorAfter.itr - colorBefore.itr;
-            int colorPos = iteration - colorBefore.itr;
+            int range = (int)((colorAfter.itr - colorBefore.itr) * stretch);
+            int colorPos = (int)(iteration - colorBefore.itr * stretch);
 
             float colorAMix = (float)colorPos / (float)range;
             float colorBMix = 1 - colorAMix;
