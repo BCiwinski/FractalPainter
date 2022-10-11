@@ -18,6 +18,7 @@ namespace FractalPainter
         IFractalDrawer drawer;
 
         bool autoRedraw = false;
+        bool autoRes = true;
         decimal zoomIncrementMult = 0.1m;
 
         public FractalPainterApp(Autofac.IContainer container)
@@ -41,9 +42,6 @@ namespace FractalPainter
 
         private void drawFractal()
         {
-            drawer.DrawSize = pictureBox.Size;
-            drawer.Zoom = (double)numericUpDownZoom.Value;
-
             updateFractalAsync(CancellationToken.None);
         }
 
@@ -69,9 +67,17 @@ namespace FractalPainter
 
         private void onParamsChanged()
         {
+            if (autoRes)
+            {
+                drawer.DrawSize = pictureBox.Size;
+                numericUpDownResX.Value = pictureBox.Size.Width;
+                numericUpDownResY.Value = pictureBox.Size.Height;
+            }
+            
+            drawer.Zoom = (double)numericUpDownZoom.Value;
+
             if (autoRedraw)
                 drawFractal();
-
         }
 
         private void numericUpDownIterations_ValueChanged(object sender, EventArgs e)
@@ -108,6 +114,59 @@ namespace FractalPainter
         private void FractalPainterApp_ResizeEnd(object sender, EventArgs e)
         {
             onParamsChanged();
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            var saveFileDialog = new SaveFileDialog();
+
+            saveFileDialog.Filter = "Bitmap|*.bmp";
+            //saveFileDialog.DefaultExt =
+            saveFileDialog.FileName = "MyFractal";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox.Image.Save(saveFileDialog.FileName, System.Drawing.Imaging.ImageFormat.Bmp);
+            }
+        }
+
+        private void checkBoxRes_CheckedChanged(object sender, EventArgs e)
+        {
+            autoRes = !checkBoxRes.Checked;
+
+            if (autoRes)
+            {
+                numericUpDownResX.Enabled = false;
+                numericUpDownResY.Enabled = false;
+            }
+            else
+            {
+                numericUpDownResX.Enabled = true;
+                numericUpDownResY.Enabled = true;
+            }
+        }
+
+        private void onUserResolutionChanged()
+        {
+            if (!autoRes)
+            {
+                drawer.DrawSize = new Size(
+                    (int)numericUpDownResX.Value,
+                    (int)numericUpDownResY.Value
+                    );
+            }
+
+            onParamsChanged();
+        }
+
+        private void numericUpDownResY_ValueChanged(object sender, EventArgs e)
+        {
+            onUserResolutionChanged();
+        }
+
+        private void numericUpDownResX_ValueChanged(object sender, EventArgs e)
+        {
+            onUserResolutionChanged();
         }
     }
 }

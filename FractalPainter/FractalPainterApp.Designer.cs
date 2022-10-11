@@ -36,14 +36,24 @@ namespace FractalPainter
             this.numericUpDownIterations = new System.Windows.Forms.NumericUpDown();
             this.buttonDraw = new System.Windows.Forms.Button();
             this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.checkBoxRes = new System.Windows.Forms.CheckBox();
+            this.numericUpDownResX = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownResY = new System.Windows.Forms.NumericUpDown();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownZoom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownIterations)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownResX)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownResY)).BeginInit();
             this.SuspendLayout();
             // 
             // panel
             // 
+            this.panel.Controls.Add(this.numericUpDownResY);
+            this.panel.Controls.Add(this.numericUpDownResX);
+            this.panel.Controls.Add(this.checkBoxRes);
+            this.panel.Controls.Add(this.buttonSave);
             this.panel.Controls.Add(this.labelInfo);
             this.panel.Controls.Add(this.checkBoxAutoRedraw);
             this.panel.Controls.Add(this.numericUpDownZoom);
@@ -150,6 +160,76 @@ namespace FractalPainter
             this.pictureBox.TabStop = false;
             this.pictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
             // 
+            // buttonSave
+            // 
+            this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonSave.Location = new System.Drawing.Point(4, 363);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(148, 45);
+            this.buttonSave.TabIndex = 5;
+            this.buttonSave.Text = "Save as...";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // checkBoxRes
+            // 
+            this.checkBoxRes.AutoSize = true;
+            this.checkBoxRes.Location = new System.Drawing.Point(12, 105);
+            this.checkBoxRes.Name = "checkBoxRes";
+            this.checkBoxRes.Size = new System.Drawing.Size(122, 21);
+            this.checkBoxRes.TabIndex = 6;
+            this.checkBoxRes.Text = "Set Resolution";
+            this.checkBoxRes.UseVisualStyleBackColor = true;
+            this.checkBoxRes.CheckedChanged += new System.EventHandler(this.checkBoxRes_CheckedChanged);
+            // 
+            // numericUpDownResX
+            // 
+            this.numericUpDownResX.Enabled = false;
+            this.numericUpDownResX.Location = new System.Drawing.Point(12, 132);
+            this.numericUpDownResX.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numericUpDownResX.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownResX.Name = "numericUpDownResX";
+            this.numericUpDownResX.Size = new System.Drawing.Size(68, 22);
+            this.numericUpDownResX.TabIndex = 7;
+            this.numericUpDownResX.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownResX.ValueChanged += new System.EventHandler(this.numericUpDownResX_ValueChanged);
+            // 
+            // numericUpDownResY
+            // 
+            this.numericUpDownResY.Enabled = false;
+            this.numericUpDownResY.Location = new System.Drawing.Point(86, 132);
+            this.numericUpDownResY.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numericUpDownResY.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownResY.Name = "numericUpDownResY";
+            this.numericUpDownResY.Size = new System.Drawing.Size(66, 22);
+            this.numericUpDownResY.TabIndex = 8;
+            this.numericUpDownResY.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownResY.ValueChanged += new System.EventHandler(this.numericUpDownResY_ValueChanged);
+            // 
             // FractalPainterApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -165,6 +245,8 @@ namespace FractalPainter
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownZoom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownIterations)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownResX)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownResY)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -178,6 +260,10 @@ namespace FractalPainter
         private System.Windows.Forms.NumericUpDown numericUpDownZoom;
         private System.Windows.Forms.CheckBox checkBoxAutoRedraw;
         private System.Windows.Forms.Label labelInfo;
+        private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.NumericUpDown numericUpDownResY;
+        private System.Windows.Forms.NumericUpDown numericUpDownResX;
+        private System.Windows.Forms.CheckBox checkBoxRes;
     }
 }
 
