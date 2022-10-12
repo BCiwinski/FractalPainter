@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BlackBluePalette.cs" />
+    <Compile Include="ColorPointPalette.cs" />
     <Compile Include="FractalDrawer.cs" />
     <Compile Include="MandelbrotSet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
