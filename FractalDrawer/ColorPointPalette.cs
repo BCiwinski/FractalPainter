@@ -12,9 +12,9 @@ namespace FractalDrawer
     {
         protected List<ColorItr> colorItr;
 
-        public int IterationsMax { get { return 100; } }
+        public abstract int IterationsMax { get; }
 
-        private float stretch = 1.0f;
+        protected float stretch = 1.0f;
         public float Stretch { get { return stretch; } set { stretch = value; } }
 
         public ColorPointPalette()
@@ -24,7 +24,7 @@ namespace FractalDrawer
 
         abstract protected void setupColorPoints();
 
-        public Color GetIterationColor(int iteration)
+        public virtual Color GetIterationColor(int iteration)
         {
             ColorItr colorBefore = colorItr.First();
             ColorItr colorAfter = colorItr.Last();

@@ -10,6 +10,9 @@ namespace FractalDrawer
 {
     public class BlackBluePalette : ColorPointPalette
     {
+
+        public override int IterationsMax { get { return 100; } }
+
         protected override void setupColorPoints()
         {
             colorItr = new List<ColorItr>() {
