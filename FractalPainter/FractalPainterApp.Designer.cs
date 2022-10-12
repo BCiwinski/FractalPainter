@@ -30,6 +30,11 @@ namespace FractalPainter
         private void InitializeComponent()
         {
             this.panel = new System.Windows.Forms.Panel();
+            this.labelStretch = new System.Windows.Forms.Label();
+            this.labelZoom = new System.Windows.Forms.Label();
+            this.labelIterations = new System.Windows.Forms.Label();
+            this.numericUpDownStretch = new System.Windows.Forms.NumericUpDown();
+            this.checkBoxLoop = new System.Windows.Forms.CheckBox();
             this.numericUpDownResY = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownResX = new System.Windows.Forms.NumericUpDown();
             this.checkBoxRes = new System.Windows.Forms.CheckBox();
@@ -40,18 +45,13 @@ namespace FractalPainter
             this.numericUpDownIterations = new System.Windows.Forms.NumericUpDown();
             this.buttonDraw = new System.Windows.Forms.Button();
             this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.checkBoxLoop = new System.Windows.Forms.CheckBox();
-            this.numericUpDownStretch = new System.Windows.Forms.NumericUpDown();
-            this.labelIterations = new System.Windows.Forms.Label();
-            this.labelZoom = new System.Windows.Forms.Label();
-            this.labelStretch = new System.Windows.Forms.Label();
             this.panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStretch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownResY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownResX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownZoom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownIterations)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStretch)).BeginInit();
             this.SuspendLayout();
             // 
             // panel
@@ -75,6 +75,65 @@ namespace FractalPainter
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(157, 553);
             this.panel.TabIndex = 1;
+            // 
+            // labelStretch
+            // 
+            this.labelStretch.AutoSize = true;
+            this.labelStretch.Location = new System.Drawing.Point(9, 198);
+            this.labelStretch.Name = "labelStretch";
+            this.labelStretch.Size = new System.Drawing.Size(92, 17);
+            this.labelStretch.TabIndex = 13;
+            this.labelStretch.Text = "Color stretch:";
+            // 
+            // labelZoom
+            // 
+            this.labelZoom.AutoSize = true;
+            this.labelZoom.Location = new System.Drawing.Point(3, 324);
+            this.labelZoom.Name = "labelZoom";
+            this.labelZoom.Size = new System.Drawing.Size(48, 17);
+            this.labelZoom.TabIndex = 12;
+            this.labelZoom.Text = "Zoom:";
+            // 
+            // labelIterations
+            // 
+            this.labelIterations.AutoSize = true;
+            this.labelIterations.Location = new System.Drawing.Point(3, 369);
+            this.labelIterations.Name = "labelIterations";
+            this.labelIterations.Size = new System.Drawing.Size(140, 17);
+            this.labelIterations.TabIndex = 11;
+            this.labelIterations.Text = "Number of iterations:";
+            // 
+            // numericUpDownStretch
+            // 
+            this.numericUpDownStretch.DecimalPlaces = 1;
+            this.numericUpDownStretch.Location = new System.Drawing.Point(12, 224);
+            this.numericUpDownStretch.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            65536});
+            this.numericUpDownStretch.Name = "numericUpDownStretch";
+            this.numericUpDownStretch.Size = new System.Drawing.Size(140, 22);
+            this.numericUpDownStretch.TabIndex = 10;
+            this.numericUpDownStretch.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownStretch.ValueChanged += new System.EventHandler(this.numericUpDownStretch_ValueChanged);
+            // 
+            // checkBoxLoop
+            // 
+            this.checkBoxLoop.AutoSize = true;
+            this.checkBoxLoop.Checked = true;
+            this.checkBoxLoop.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxLoop.Location = new System.Drawing.Point(12, 174);
+            this.checkBoxLoop.Name = "checkBoxLoop";
+            this.checkBoxLoop.Size = new System.Drawing.Size(106, 21);
+            this.checkBoxLoop.TabIndex = 9;
+            this.checkBoxLoop.Text = "Loop Colors";
+            this.checkBoxLoop.UseVisualStyleBackColor = true;
+            this.checkBoxLoop.CheckedChanged += new System.EventHandler(this.checkBoxLoop_CheckedChanged);
             // 
             // numericUpDownResY
             // 
@@ -241,60 +300,6 @@ namespace FractalPainter
             this.pictureBox.TabStop = false;
             this.pictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
             // 
-            // checkBoxLoop
-            // 
-            this.checkBoxLoop.AutoSize = true;
-            this.checkBoxLoop.Checked = true;
-            this.checkBoxLoop.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxLoop.Location = new System.Drawing.Point(12, 174);
-            this.checkBoxLoop.Name = "checkBoxLoop";
-            this.checkBoxLoop.Size = new System.Drawing.Size(106, 21);
-            this.checkBoxLoop.TabIndex = 9;
-            this.checkBoxLoop.Text = "Loop Colors";
-            this.checkBoxLoop.UseVisualStyleBackColor = true;
-            this.checkBoxLoop.CheckedChanged += new System.EventHandler(this.checkBoxLoop_CheckedChanged);
-            // 
-            // numericUpDownStretch
-            // 
-            this.numericUpDownStretch.DecimalPlaces = 1;
-            this.numericUpDownStretch.Location = new System.Drawing.Point(12, 224);
-            this.numericUpDownStretch.Name = "numericUpDownStretch";
-            this.numericUpDownStretch.Size = new System.Drawing.Size(140, 22);
-            this.numericUpDownStretch.TabIndex = 10;
-            this.numericUpDownStretch.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDownStretch.ValueChanged += new System.EventHandler(this.numericUpDownStretch_ValueChanged);
-            // 
-            // labelIterations
-            // 
-            this.labelIterations.AutoSize = true;
-            this.labelIterations.Location = new System.Drawing.Point(3, 369);
-            this.labelIterations.Name = "labelIterations";
-            this.labelIterations.Size = new System.Drawing.Size(140, 17);
-            this.labelIterations.TabIndex = 11;
-            this.labelIterations.Text = "Number of iterations:";
-            // 
-            // labelZoom
-            // 
-            this.labelZoom.AutoSize = true;
-            this.labelZoom.Location = new System.Drawing.Point(3, 324);
-            this.labelZoom.Name = "labelZoom";
-            this.labelZoom.Size = new System.Drawing.Size(48, 17);
-            this.labelZoom.TabIndex = 12;
-            this.labelZoom.Text = "Zoom:";
-            // 
-            // labelStretch
-            // 
-            this.labelStretch.AutoSize = true;
-            this.labelStretch.Location = new System.Drawing.Point(9, 198);
-            this.labelStretch.Name = "labelStretch";
-            this.labelStretch.Size = new System.Drawing.Size(92, 17);
-            this.labelStretch.TabIndex = 13;
-            this.labelStretch.Text = "Color stretch:";
-            // 
             // FractalPainterApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -307,12 +312,12 @@ namespace FractalPainter
             this.ResizeEnd += new System.EventHandler(this.FractalPainterApp_ResizeEnd);
             this.panel.ResumeLayout(false);
             this.panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStretch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownResY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownResX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownZoom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownIterations)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStretch)).EndInit();
             this.ResumeLayout(false);
 
         }
