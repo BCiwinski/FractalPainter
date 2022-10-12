@@ -87,7 +87,7 @@ namespace FractalDrawer
                                 color = palette.GetIterationColor(fractal.GetPointIterations(
                                     GetPointX(x),
                                     GetPointY(y)
-                                    ) % palette.IterationsMax
+                                    ) % (int)(palette.IterationsMax * PaletteStretch)
                                 );
                             }
                             else
