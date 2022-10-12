@@ -182,7 +182,7 @@ namespace FractalPainter
 
         private void numericUpDownStretch_ValueChanged(object sender, EventArgs e)
         {
-            drawer.Palette.Stretch = (float)numericUpDownStretch.Value;
+            drawer.PaletteStretch = (float)numericUpDownStretch.Value;
             onParamsChanged();
         }
 

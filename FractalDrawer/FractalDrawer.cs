@@ -38,6 +38,8 @@ namespace FractalDrawer
         protected bool paletteLoop = true;
         public bool PaletteLoop { get { return paletteLoop;} set { paletteLoop = value; } }
 
+        public float PaletteStretch { get {return palette.Stretch; } set { palette.Stretch = value; } }
+
         public FractalDrawer(IFractal fractal, IFractalColorPalette palette)
         {
             this.fractal = fractal;
