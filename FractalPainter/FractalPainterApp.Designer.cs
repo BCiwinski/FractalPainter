@@ -292,10 +292,10 @@ namespace FractalPainter
             this.pictureBox.BackColor = System.Drawing.Color.White;
             this.pictureBox.Cursor = System.Windows.Forms.Cursors.Default;
             this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox.Location = new System.Drawing.Point(157, 0);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(1182, 553);
-            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox.Size = new System.Drawing.Size(1025, 553);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox.TabIndex = 2;
             this.pictureBox.TabStop = false;
             this.pictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
@@ -305,8 +305,8 @@ namespace FractalPainter
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1182, 553);
-            this.Controls.Add(this.panel);
             this.Controls.Add(this.pictureBox);
+            this.Controls.Add(this.panel);
             this.Name = "FractalPainterApp";
             this.Text = "FractalPainter";
             this.ResizeEnd += new System.EventHandler(this.FractalPainterApp_ResizeEnd);
