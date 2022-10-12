@@ -35,6 +35,9 @@ namespace FractalDrawer
         protected double offsetY = 0.0;
         public double OffsetY { get { return offsetY; } set { offsetY = value; } }
 
+        protected bool paletteLoop = true;
+        public bool PaletteLoop { get { return paletteLoop;} set { paletteLoop = value; } }
+
         public FractalDrawer(IFractal fractal, IFractalColorPalette palette)
         {
             this.fractal = fractal;
@@ -72,10 +75,24 @@ namespace FractalDrawer
                 for(int y = 0; y < drawSize.Height; y++)
                     for(int x = 0; x < drawSize.Width; x++)
                     {
-                        Color color = palette.GetIterationColor(fractal.GetPointIterations(
-                            GetPointX(x),
-                            GetPointY(y)
-                            ));
+                        Color color;
+
+                        if (paletteLoop)
+                        {
+                            color = palette.GetIterationColor(fractal.GetPointIterations(
+                                GetPointX(x),
+                                GetPointY(y)
+                                ) % palette.IterationsMax
+                            );
+                        }
+                        else
+                        {
+                            color = palette.GetIterationColor(fractal.GetPointIterations(
+                                GetPointX(x),
+                                GetPointY(y)
+                                ));
+                        }
+
 
                         PtrFirstPixel[y * widthInBytes + x * bytesPerPixel] = (byte)(color.B);
                         PtrFirstPixel[y * widthInBytes + x * bytesPerPixel + 1] = (byte)(color.G);

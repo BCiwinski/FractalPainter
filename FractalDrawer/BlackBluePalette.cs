@@ -17,23 +17,23 @@ namespace FractalDrawer
         new ColorItr {color = Color.Black, itr = 100}
         };
 
+        public int IterationsMax { get{ return 100;} }
 
-
-
-
+        private float stretch = 1.0f;
+        public float Stretch { get { return stretch; } set { stretch = value; } }
 
         public Color GetIterationColor(int iteration)
         {
-            ColorItr colorBefore = colorItr[0];
+            ColorItr colorBefore = colorItr.First();
             ColorItr colorAfter = colorItr.Last();
 
 
             foreach (ColorItr ci in colorItr)
             {
-                if (ci.itr <= iteration && colorBefore.itr < ci.itr)
+                if (ci.itr * stretch <= iteration && colorBefore.itr * stretch < ci.itr * stretch)
                     colorBefore = ci;
 
-                if (ci.itr >= iteration && colorAfter.itr > ci.itr)
+                if (ci.itr * stretch >= iteration && colorAfter.itr * stretch > ci.itr * stretch)
                     colorAfter = ci;
             }
 
@@ -41,8 +41,8 @@ namespace FractalDrawer
                 return colorBefore.color;
 
 
-            int range = colorAfter.itr - colorBefore.itr;
-            int colorPos = iteration - colorBefore.itr;
+            int range = (int)((colorAfter.itr - colorBefore.itr) * stretch);
+            int colorPos = (int)(iteration - colorBefore.itr * stretch);
 
             float colorAMix = (float)colorPos / (float)range;
             float colorBMix = 1 - colorAMix;
@@ -56,6 +56,8 @@ namespace FractalDrawer
 
             return result;
         }
+
+
     }
 
     struct ColorItr

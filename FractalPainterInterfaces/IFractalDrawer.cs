@@ -11,6 +11,7 @@ namespace FractalPainterInterfaces
     {
         IFractal Fractal { get; set; }
         IFractalColorPalette Palette { get; set; }
+        bool PaletteLoop { get; set; }
         int IterationsNum { get; set; }
         double Zoom { get; set; }
         double OffsetX { get; set; }
