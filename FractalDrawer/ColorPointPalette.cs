@@ -26,6 +26,9 @@ namespace FractalDrawer
 
         public virtual Color GetIterationColor(int iteration)
         {
+            if (colorItr.Count() == 0)
+                throw new PaletteException("Color palette contains on colors!");
+
             ColorItr colorBefore = colorItr.First();
             ColorItr colorAfter = colorItr.Last();
 
@@ -66,5 +69,10 @@ namespace FractalDrawer
     {
         public Color color;
         public int itr;
+    }
+
+    public class PaletteException : Exception {
+
+        public PaletteException(string message) : base(message) { }
     }
 }
