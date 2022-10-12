@@ -50,62 +50,71 @@ namespace FractalDrawer
 
         public Image DrawFractal()
         {
-            Bitmap result = new Bitmap(drawSize.Width, drawSize.Height);
-
-            BitmapData bmpData = result.LockBits(
-                new Rectangle(0, 0, drawSize.Width, drawSize.Height),
-                ImageLockMode.WriteOnly,
-                PixelFormat.Format24bppRgb
-                );
-
-
-            IntPtr ptr = bmpData.Scan0;
-
-            int widthInBytes = bmpData.Stride;
-            int bytesPerPixel = System.Drawing.Bitmap.GetPixelFormatSize(bmpData.PixelFormat) / 8;
-
-            int bytes = bmpData.Stride * drawSize.Height;
-            byte[] rgbValues = new byte[bytes];
-
-
-            unsafe
+            try
             {
-                byte* PtrFirstPixel = (byte*)bmpData.Scan0;
+                Bitmap result = new Bitmap(drawSize.Width, drawSize.Height);
 
-                Parallel.For(0, drawSize.Height, (y) =>
+                BitmapData bmpData = result.LockBits(
+                    new Rectangle(0, 0, drawSize.Width, drawSize.Height),
+                    ImageLockMode.WriteOnly,
+                    PixelFormat.Format24bppRgb
+                    );
+
+
+                IntPtr ptr = bmpData.Scan0;
+
+                int widthInBytes = bmpData.Stride;
+                int bytesPerPixel = System.Drawing.Bitmap.GetPixelFormatSize(bmpData.PixelFormat) / 8;
+
+                int bytes = bmpData.Stride * drawSize.Height;
+                byte[] rgbValues = new byte[bytes];
+
+
+                unsafe
                 {
-                    for (int x = 0; x < drawSize.Width; x++)
+                    byte* PtrFirstPixel = (byte*)bmpData.Scan0;
+
+                    Parallel.For(0, drawSize.Height, (y) =>
                     {
-                        Color color;
-
-                        if (paletteLoop)
+                        for (int x = 0; x < drawSize.Width; x++)
                         {
-                            color = palette.GetIterationColor(fractal.GetPointIterations(
-                                GetPointX(x),
-                                GetPointY(y)
-                                ) % palette.IterationsMax
-                            );
-                        }
-                        else
-                        {
-                            color = palette.GetIterationColor(fractal.GetPointIterations(
-                                GetPointX(x),
-                                GetPointY(y)
-                                ));
-                        }
+                            Color color;
+
+                            if (paletteLoop)
+                            {
+                                color = palette.GetIterationColor(fractal.GetPointIterations(
+                                    GetPointX(x),
+                                    GetPointY(y)
+                                    ) % palette.IterationsMax
+                                );
+                            }
+                            else
+                            {
+                                color = palette.GetIterationColor(fractal.GetPointIterations(
+                                    GetPointX(x),
+                                    GetPointY(y)
+                                    ));
+                            }
 
 
-                        PtrFirstPixel[y * widthInBytes + x * bytesPerPixel] = (byte)(color.B);
-                        PtrFirstPixel[y * widthInBytes + x * bytesPerPixel + 1] = (byte)(color.G);
-                        PtrFirstPixel[y * widthInBytes + x * bytesPerPixel + 2] = (byte)(color.R);
-                    }
-                });
+                            PtrFirstPixel[y * widthInBytes + x * bytesPerPixel] = (byte)(color.B);
+                            PtrFirstPixel[y * widthInBytes + x * bytesPerPixel + 1] = (byte)(color.G);
+                            PtrFirstPixel[y * widthInBytes + x * bytesPerPixel + 2] = (byte)(color.R);
+                        }
+                    });
+                }
+
+                result.UnlockBits(bmpData);
+                return result;
             }
-
-
-
-            result.UnlockBits(bmpData);
-            return result;
+            catch(PaletteException pErr)
+            {
+                throw pErr;
+            }
+            catch(Exception err)
+            {
+                throw err;
+            }
         }
 
         public double GetPointX(int x)
